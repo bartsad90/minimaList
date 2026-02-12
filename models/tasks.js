@@ -12,9 +12,9 @@ const taskSchema = new mongoose.Schema({
     },
     count: {
       type: Number,
-      max: 9999
+      max: 999
     },
-    complete: {
+    isComplete: {
       type: Boolean,
       default: false, 
       required: true
@@ -23,7 +23,7 @@ const taskSchema = new mongoose.Schema({
       type: String,
       // add a validator which will help find the category of a list item
       // match: regEx
-      enum: ["warzywa/owoce", "pieczywo", "nabial", "konserwy", "mieso", "chemia", "kosmetyki", "inne", "slodkie",]
+      enum: ["warzywa/owoce", "pieczywo", "nabial", "konserwy", "mieso", "chemia", "kosmetyki", "inne", "slodkie", "mrozonki"]
     },
     favorite: {
       type: Boolean,

@@ -5,33 +5,34 @@ const listSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true, 
-    //match: regExp
     minLength: 3,
     maxLength: 35
    },
   body: {
     type: Array,
     required: true, 
+    // arrays have default: []
   },
   createdAt: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
+    //required: true
   },
   addedBy: {
     type: String,
-    required: true,
+    //required: true,
     default: ""
   },
   starred: {
     type: Boolean,
     default: false, 
-    required: true
   },
   //will be used for ${completeCount}/list.length for progress
   completeCount: {
-    type: Number, 
+    type: String, 
     // use the result of a function taking an array completedItems.length by body.length presented as a string, e.g. "21/37"
     // default: countProgress(body)
+    // frontend will handle stats and numbers (percentage, 21 out 37 )
   },
 });
 

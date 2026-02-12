@@ -11,11 +11,11 @@ const {
 
 listsRouter.route("/")
   .get(getAllLists)
-  .delete(deleteAllLists);
+  .delete(deleteAllLists)
+  .post(createList);
 
 listsRouter.route("/:listId")
   .get(getList)
-  .post(createList)
   .patch(updateList)
   .delete(deleteList);
 
