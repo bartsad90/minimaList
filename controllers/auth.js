@@ -33,8 +33,24 @@ const registerUser = async (req, res) => {
 
 // login
 const login = async (req, res) => {
+    const {name, password} = req.body
+
+    if (!name || !password) {
+        throw new Error('Please provide name and password')
+    }
+
+    const user = await UserSchema.findOne({name})
+    const isPasswordCorrect = user.compare(password)
+    
+    if (!user || !isPasswordCorrect) {
+        throw new Error('Invalid user name or password')
+    }
+
+    const token = user.createJWT()
+
+    
     //const {name, email, password} = req.body
-    res.status(200).send('login user')
+    res.status(200).json({user, token})
 }
 
 module.exports = {registerUser, login}
