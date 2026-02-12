@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/bartsad90/minimaList/issues"
   },
-  "homepage": "https://github.com/bartsad90/minimaList#readme"
+  "homepage": "https://github.com/bartsad90/minimaList#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3"
+  }
 }
