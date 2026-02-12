@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const listsRouter = require('./routers/lists')
 const tasksRouter = require('./routers/tasks')
 const authRouter = require('./routers/auth')
+const authenticateUser = require('./middleware/auth')
 
 const dns = require('dns')
 const connectDB = require('./db/connect')
@@ -12,7 +13,7 @@ dns.setServers(['8.8.8.8'])
 
 
 app.use(express.json())
-app.use('/api/v1/lists', listsRouter)
+app.use('/api/v1/lists', authenticateUser, listsRouter)
 app.use('/api/v1/view-tasks', tasksRouter)
 app.use('/auth', authRouter)
 app.use('/', (req, res) => {
