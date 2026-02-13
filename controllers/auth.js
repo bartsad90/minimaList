@@ -41,12 +41,12 @@ const login = async (req, res) => {
     }
 
     const user = await UserSchema.findOne({name})
-    const isPasswordCorrect = user.compare(password)
+    const isPasswordCorrect = await user.compare(password)
     
     if (!user || !isPasswordCorrect) {
         throw new UnauthorizedError('Invalid user name or password')
     }
-    
+
     const token = user.createJWT()
 
     //const {name, email, password} = req.body
