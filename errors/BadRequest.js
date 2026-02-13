@@ -1,4 +1,4 @@
-const customApiError = require('./CustomAPIError')
+const customApiError = require('./CustomAPIError.js')
 const { StatusCodes } = require('http-status-codes')
 
 class BadRequestError extends customApiError{
