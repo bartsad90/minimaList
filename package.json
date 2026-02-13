@@ -20,6 +20,7 @@
   "homepage": "https://github.com/bartsad90/minimaList#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.3"
   }
 }
